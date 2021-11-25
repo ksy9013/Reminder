@@ -31,11 +31,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
 
         EditText editText = findViewById(R.id.editText);
+        EditText editTitle = findViewById(R.id.editTitle);
         TimePicker timePicker = findViewById(R.id.timePicker);
 
         // Intent
         Intent intent = new Intent(MainActivity.this, AlarmReceiver.class);
         intent.putExtra("notificationId", notificationId);
+        intent.putExtra("title", editTitle.getText().toString());
         intent.putExtra("message", editText.getText().toString());
 
         // PendingIntent
